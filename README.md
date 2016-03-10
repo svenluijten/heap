@@ -24,7 +24,7 @@ and run `composer update`:
 ```json
 {
     "require": {
-        "sven/heap": "^1.0"
+        "sven/heap": "0.0.2"
     }
 }
 ```

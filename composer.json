@@ -1,6 +1,6 @@
 {
     "name": "sven/heap",
-    "description": "Arrays on performance enhancing substances. Collections 'lite'.",
+    "description": "Easier handling for arrays in PHP. Collections 'lite'.",
     "keywords": ["heap", "array", "collection"],
     "license": "MIT",
     "authors": [
@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php" : "^7.0"
+        "php" : "^5.6 || ^7.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8 || ^5.0",

@@ -2,14 +2,12 @@
 
 namespace Sven\Heap\Tests;
 
-class HeapTest extends PackageTest
+class HeapTest extends BaseTest
 {
     /** @test */
     public function it_instantiates_a_new_heap()
     {
-        $heap = $this->makeHeap();
-
-        $this->assertEquals([], $heap->all());
+        $this->assertEquals([], $this->heap->all());
     }
 
     /** @test */
@@ -126,16 +124,5 @@ class HeapTest extends PackageTest
         $random = $heap->random();
 
         $this->assertTrue( in_array( $random, $heap->all() ) );
-    }
-
-    /**
-     * Create a new Heap.
-     *
-     * @param  array  $items
-     * @return \Sven\Heap\Heap
-     */
-    private function makeHeap(array $items = [])
-    {
-        return new \Sven\Heap\Heap($items);
     }
 }

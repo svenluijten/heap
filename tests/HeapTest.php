@@ -2,7 +2,7 @@
 
 namespace Sven\Heap\Tests;
 
-class HeapTest extends PackageTest
+class HeapTest extends HeapTestCase
 {
     /** @test */
     public function it_instantiates_a_new_heap()
@@ -41,7 +41,10 @@ class HeapTest extends PackageTest
     {
         $heap = $this->makeHeap(['foo', 'bar', 'baz']);
 
-        $this->assertEquals(['foo', 'bar'], $heap->first(2));
+        $this->assertEquals(
+            ['foo', 'bar'],
+            $heap->first(2)->all()
+        );
     }
 
     /** @test */
@@ -65,7 +68,10 @@ class HeapTest extends PackageTest
     {
         $heap = $this->makeHeap(['foo', 'bar', 'baz']);
 
-        $this->assertEquals(['bar', 'baz'], $heap->last(2));
+        $this->assertEquals(
+            ['bar', 'baz'],
+            $heap->last(2)->all()
+        );
     }
 
     /** @test */
@@ -75,7 +81,10 @@ class HeapTest extends PackageTest
 
         $pushed = $heap->push('baz')->all();
 
-        $this->assertEquals(['foo', 'bar', 'baz'], $pushed);
+        $this->assertEquals(
+            ['foo', 'bar', 'baz'],
+            $pushed
+        );
     }
 
     /** @test */
@@ -85,7 +94,10 @@ class HeapTest extends PackageTest
 
         $merged = $heap->merge(['baz', 'fizz']);
 
-        $this->assertEquals(['foo', 'bar', 'baz', 'fizz'], $merged->all());
+        $this->assertEquals(
+            ['foo', 'bar', 'baz', 'fizz'],
+            $merged->all()
+        );
     }
 
     /** @test */
@@ -105,7 +117,10 @@ class HeapTest extends PackageTest
 
         $prepended = $heap->prepend('foo');
 
-        $this->assertEquals(['foo', 'bar', 'baz'], $prepended->all());
+        $this->assertEquals(
+            ['foo', 'bar', 'baz'],
+            $prepended->all()
+        );
     }
 
     /** @test */
@@ -115,7 +130,10 @@ class HeapTest extends PackageTest
 
         $appended = $heap->append('baz');
 
-        $this->assertEquals(['foo', 'bar', 'baz'], $appended->all());
+        $this->assertEquals(
+            ['foo', 'bar', 'baz'],
+            $appended->all()
+        );
     }
 
     /** @test */
@@ -125,17 +143,8 @@ class HeapTest extends PackageTest
 
         $random = $heap->random();
 
-        $this->assertTrue( in_array( $random, $heap->all() ) );
-    }
-
-    /**
-     * Create a new Heap.
-     *
-     * @param  array  $items
-     * @return \Sven\Heap\Heap
-     */
-    private function makeHeap(array $items = [])
-    {
-        return new \Sven\Heap\Heap($items);
+        $this->assertTrue(
+            in_array($random, $heap->all())
+        );
     }
 }

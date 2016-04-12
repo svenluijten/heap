@@ -33,13 +33,15 @@ class Heap
      * Get the first item or a subset of items starting from the beginning.
      *
      * @param  integer $lookahead
-     * @return array
+     * @return \Sven\Heap\Heap|array
      */
     public function first(int $lookahead = 0)
     {
         if ($lookahead <= 1) return $this->items[0];
 
-        return array_slice($this->all(), 0, $lookahead);
+        $array = array_slice($this->all(), 0, $lookahead);
+
+        return new self($array);
     }
 
     /**
@@ -52,7 +54,9 @@ class Heap
     {
         if ($lookbehind <= 1) return end($this->items);
 
-        return array_slice($this->all(), -$lookbehind, $lookbehind);
+        $array = array_slice($this->all(), -$lookbehind, $lookbehind);
+
+        return new self($array);
     }
 
     /**

@@ -32,12 +32,15 @@ class Heap
     /**
      * Get the first item or a subset of items starting from the beginning.
      *
-     * @param  integer $lookahead
+     * @param int $lookahead
+     *
      * @return array
      */
     public function first(int $lookahead = 0)
     {
-        if ($lookahead <= 1) return $this->items[0];
+        if ($lookahead <= 1) {
+            return $this->items[0];
+        }
 
         return array_slice($this->all(), 0, $lookahead);
     }
@@ -45,12 +48,15 @@ class Heap
     /**
      * Get the last item or a subset of items starting from the end.
      *
-     * @param  integer $lookbehind
+     * @param int $lookbehind
+     *
      * @return array
      */
     public function last(int $lookbehind = 0)
     {
-        if ($lookbehind <= 1) return end($this->items);
+        if ($lookbehind <= 1) {
+            return end($this->items);
+        }
 
         return array_slice($this->all(), -$lookbehind, $lookbehind);
     }
@@ -58,7 +64,8 @@ class Heap
     /**
      * Push an item into the Heap.
      *
-     * @param  string $item
+     * @param string $item
+     *
      * @return \Sven\Heap\Heap
      */
     public function push(string $item)
@@ -71,7 +78,8 @@ class Heap
     /**
      * Merge another array into the Heap.
      *
-     * @param  array  $items
+     * @param array $items
+     *
      * @return \Sven\Heap\Heap
      */
     public function merge(array $items)
@@ -82,7 +90,8 @@ class Heap
     /**
      * Push a value to be the first item in the Heap.
      *
-     * @param  string $value
+     * @param string $value
+     *
      * @return \Sven\Heap\Heap
      */
     public function prepend($value)
@@ -95,7 +104,8 @@ class Heap
     /**
      * Push a value to the last position in the Heap.
      *
-     * @param  string $value
+     * @param string $value
+     *
      * @return \Sven\Heap\Heap
      */
     public function append(string $value)
@@ -106,7 +116,8 @@ class Heap
     /**
      * Return a random item from the Heap.
      *
-     * @param  integer $amount
+     * @param int $amount
+     *
      * @return mixed
      */
     public function random()

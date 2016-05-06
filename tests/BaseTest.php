@@ -11,13 +11,14 @@ abstract class BaseTest extends \Orchestra\Testbench\TestCase
      */
     public function setUp()
     {
-        $this->heap = new Heap;
+        $this->heap = new Heap();
     }
 
     /**
      * Create a new heap from the given items.
      *
-     * @param  array  $items
+     * @param array $items
+     *
      * @return \Sven\Heap\Heap
      */
     public function makeHeap(array $items)

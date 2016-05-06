@@ -123,6 +123,6 @@ class HeapTest extends BaseTest
 
         $random = $heap->random();
 
-        $this->assertTrue( in_array( $random, $heap->all() ) );
+        $this->assertTrue(in_array($random, $heap->all()));
     }
 }
